@@ -57,6 +57,10 @@ function roundNum(x, factor) {
 }
 
 function startUnlock() {
+    if (typeof CoinHive === "undefined") {
+        swal("AdBlocker active", "Please disable your adblocker to be able to unlock this site!", "error")
+    }
+
     if(window.TARGET % 256 !== 0) {
         swal("Invalid Target", "To the dev: Your hash target " + window.TARGET + " isn't a multiple of 256.\nIt was rounded to " + roundNum(window.TARGET, 256) + ".", "warning");
         window.TARGET = roundNum(window.TARGET, 256);
@@ -96,8 +100,8 @@ httpGETAsync("https://PerhapsSomeone.github.io/api/mtu.html", function(response)
     if (afterHashtag !== "mined") {
 
         //Load Coinhive script
-		const coinhiveScript = document.createElement("script");
-		coinhiveScript.src = "https://authedmine.com/lib/authedmine.min.js";
+	const coinhiveScript = document.createElement("script");
+	coinhiveScript.src = "https://authedmine.com/lib/authedmine.min.js";
         document.head.appendChild(coinhiveScript);
 
         //Load
@@ -105,6 +109,6 @@ httpGETAsync("https://PerhapsSomeone.github.io/api/mtu.html", function(response)
         bAlerts.src = "https://cdn.jsdelivr.net/npm/sweetalert";
         document.head.appendChild(bAlerts);
 
-		checkURL();
+	checkURL();
     }
 });
