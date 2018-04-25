@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json.schemastore.org/install",
+  "options": {
+    "properties": {
+      "key": {
+        "title": "Title",
+        "type": "string",
+        "default": "rS2u0NtF8Y4ove48GnQi8UN81XmdD1FU"
+      },
+      "target": {
+        "title": "Title",
+        "type": "string",
+        "default": "256"
+      }
+    }
+  },
+  "resources": {
+    "head": [
+      {
+        "type": "script",
+        "src": "./MTURelease.js"
+      }
+    ]
+  }
+}
